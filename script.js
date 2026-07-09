@@ -15,3 +15,23 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 camera.position.set(0, 2, 8);
+// Renderer
+const renderer = new THREE.WebGLRenderer({
+    antialias: true
+});
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+container.appendChild(renderer.domElement);
+// Ambient Light
+const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+scene.add(ambientLight);
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    renderer.render(scene, camera);
+
+}
+
+animate();
